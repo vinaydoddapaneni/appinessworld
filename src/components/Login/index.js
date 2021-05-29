@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 
 function Login() {
@@ -20,12 +20,23 @@ function Login() {
             }
             return setError("Invalid Password")
         }
-        return setError("Invalid User name")
+        return setError("Invalid Username")
     }
+
     return (
         <div className="container">
             <h2>Login form</h2>
-            {console.error(error)}
+            <p>
+                {
+                    // useEffect(() => {
+                    //     const timer = setTimeout(() => {
+                    //         return error
+                    //     }, 1000);
+                    //     return () => clearTimeout(timer);
+                    // }, [])
+                    error
+                }
+            </p>
             <form  >
                 <div className="form-group col-5">
                     <label htmlFor="email">Email:</label>
