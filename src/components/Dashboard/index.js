@@ -12,7 +12,9 @@ function Dashboard() {
     })
     return (
         <div className="container">
+            <Link to="/" className="btn btn-dark mb-1 mt-1">Logo out</Link>
             <div className="row">
+
                 {
                     data.map(list => {
                         return (

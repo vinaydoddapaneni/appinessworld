@@ -5,9 +5,9 @@ function Login() {
     const [password, setPassword] = useState("")
     return (
         <div className="container">
-            <h2>Stacked form</h2>
+            <h2>Login form</h2>
             <form action="/action_page.php">
-                <div className="form-group">
+                <div className="form-group col-5">
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email" value={email}
@@ -16,7 +16,7 @@ function Login() {
                         placeholder="Enter email" name="email"
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group col-5">
                     <label htmlFor="pwd">Password:</label>
                     <input
                         type="password" value={password}
