@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
-import Sample from './components/Sample';
 
 
 function Root() {
@@ -17,7 +16,6 @@ function Root() {
             <Switch>
                 <Route exact path="/" component={Login} />
                 <Route path="/login" component={Login} />
-                <Route path="/sample" component={Sample} />
                 <Route path="/dashboard" component={Dashboard} />
 
             </Switch>
