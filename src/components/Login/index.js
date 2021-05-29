@@ -1,17 +1,37 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 function Login() {
-    const [email, setEmail] = useState("")
+    const userData = {
+        username: "hruday@gmail.com",
+        password: "hruday123"
+    }
+    const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    const history = useHistory();
+
+    const submit = (e) => {
+        e.preventDefault();
+        alert('working')
+        if (user === userData.username) {
+            if (password === userData.password) {
+                return (history.push("/dashboard"))
+            }
+            return setError("Invalid Password")
+        }
+        return setError("Invalid User name")
+    }
     return (
         <div className="container">
             <h2>Login form</h2>
-            <form action="/action_page.php">
+            {console.error(error)}
+            <form  >
                 <div className="form-group col-5">
                     <label htmlFor="email">Email:</label>
                     <input
-                        type="email" value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        type="email" value={user}
+                        onChange={e => setUser(e.target.value)}
                         className="form-control" id="email"
                         placeholder="Enter email" name="email"
                     />
@@ -30,7 +50,12 @@ function Login() {
                         <input className="form-check-input" type="checkbox" name="remember" /> Remember me
                     </label>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button
+                    type="submit"
+                    onClick={submit}
+                    className="btn btn-primary"
+                    disabled={!user | !password}
+                >Submit</button>
             </form>
         </div>
 
